@@ -1,0 +1,11 @@
+pyproject.toml
+config/__init__.py
+config/asgi.py
+config/settings.py
+config/urls.py
+config/wsgi.py
+devoluciones.egg-info/PKG-INFO
+devoluciones.egg-info/SOURCES.txt
+devoluciones.egg-info/dependency_links.txt
+devoluciones.egg-info/requires.txt
+devoluciones.egg-info/top_level.txt

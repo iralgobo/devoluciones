@@ -1,0 +1,21 @@
+Metadata-Version: 2.4
+Name: devoluciones
+Version: 0.1.0
+Summary: Sistema web MVP para gestión de devoluciones online
+Author: Equipo Devoluciones
+Requires-Python: >=3.11
+Description-Content-Type: text/markdown
+Requires-Dist: Django<6.0,>=5.0
+Requires-Dist: python-decouple>=3.8
+Requires-Dist: djangorestframework>=3.15
+Requires-Dist: django-filter>=24.1
+Requires-Dist: django-cors-headers>=4.3
+Provides-Extra: async
+Requires-Dist: celery>=5.4; extra == "async"
+Requires-Dist: redis>=5.0; extra == "async"
+Provides-Extra: dev
+Requires-Dist: black>=24.1; extra == "dev"
+Requires-Dist: isort>=5.13; extra == "dev"
+Requires-Dist: flake8>=7.0; extra == "dev"
+Requires-Dist: pytest>=8.0; extra == "dev"
+Requires-Dist: pytest-django>=4.8; extra == "dev"
