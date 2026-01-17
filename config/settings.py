@@ -33,17 +33,20 @@ DJANGO_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    'accounts'
 ]
 
 THIRD_PARTY_APPS = [
     "rest_framework",
     "django_filters",
     "corsheaders",
+    'allauth',
+    'allauth.account',
+    
 ]
 
 LOCAL_APPS = [
     # "apps.core",
-    # "apps.users",
     # "apps.devoluciones",
     # "apps.logistica",
 ]
@@ -63,6 +66,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "allauth.account.middleware.AccountMiddleware",
 ]
 
 
@@ -120,6 +124,29 @@ LANGUAGE_CODE = "es-uy"
 TIME_ZONE = "America/Montevideo"
 USE_I18N = True
 USE_TZ = True
+
+
+AUTH_USER_MODEL = "accounts.CustomUser"
+
+SITE_ID = 1
+
+AUTHENTICATION_BACKENDS = [
+    "django.contrib.auth.backends.ModelBackend",  # login normal
+    "allauth.account.auth_backends.AuthenticationBackend",  # allauth
+]
+
+# Configuración de Allauth
+ACCOUNT_USER_MODEL_USERNAME_FIELD = "username"
+
+ACCOUNT_LOGIN_METHODS = {'username'}
+ACCOUNT_EMAIL_VERIFICATION = "optional"  # o "mandatory" si quieres forzar verificación
+ACCOUNT_SIGNUP_FIELDS = ['email*', 'username*', 'password1*', 'password2*']
+LOGIN_REDIRECT_URL = "/"  # página tras login
+LOGOUT_REDIRECT_URL = "/accounts/login/"
+
+ACCOUNT_FORMS = {
+    "signup": "accounts.forms.CustomSignupForm",
+}
 
 
 # ------------------------------------------------------------------------------
